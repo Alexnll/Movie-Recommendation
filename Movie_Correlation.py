@@ -1,4 +1,6 @@
 # 查看数据集并进行预处理
+# 实现基于物品的协同过滤
+# 采用皮尔逊积相关系数表征电影之间的相关性
 import  pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -65,37 +67,42 @@ def construct_RS(df_merged, ratings, user_list, setting_number=100):
     
     # 基于用户看过的电影
     for movie in user_list:
-        print()
-        print("Based on the movie " + movie)
+        if movie == "":
+            continue
+        else:
+            print()
+            print("--> " + "Based on the movie " + movie)
 
-        movie_user_rating = movie_matrix[movie]
-        # print(movie, ': \n', movie_user_rating.head())
-        # print()
-        
-        # 用corrwith功能统计两个dataframe对象间两两相关的关系
-        similar_movie = movie_matrix.corrwith(movie_user_rating)
-        # print("similar_movie: \n", similar_movie.head())
-        # print()
-        
-        # 删除表中的缺失值并转化为dataframe对象
-        corr_movie = pd.DataFrame(similar_movie, columns=['Correlation'])
-        corr_movie.dropna(inplace=True)
-        # print("corr_movie: \n", corr_movie.head())
-        # print()
+            movie_user_rating = movie_matrix[movie]
+            # print(movie, ': \n', movie_user_rating.head())
+            # print()
 
-        # 设置评分次数阈值
-        # 利用join方法在corr_movie中加入ratings的number of ratings列
-        corr_movie = corr_movie.join(ratings['number_of_ratings'])
-        # print("corr_movie: \n", corr_movie.head())
-        # print()
-        corr_movie_after_treated = corr_movie[corr_movie['number_of_ratings'] > setting_number].sort_values(by='Correlation', ascending=False)        
-        print("corr_movie after treated: \n", corr_movie_after_treated.head())
-        print()
+            # 用corrwith功能统计两个dataframe对象间两两相关的关系
+            similar_movie = movie_matrix.corrwith(movie_user_rating)
+            # print("similar_movie: \n", similar_movie.head())
+            # print()
 
-        # 是否保存
-        save = input("Do you want to save the " + "recommended movies based on " + movie + " as .csv? Y/N ")
-        if save == 'Y':
-            similar_movie.to_csv(data_path + 'Recommendation based on ' + movie + '.csv')
+            # 删除表中的缺失值并转化为dataframe对象
+            corr_movie = pd.DataFrame(similar_movie, columns=['Correlation'])
+            corr_movie.dropna(inplace=True)
+            # print("corr_movie: \n", corr_movie.head())
+            # print()
+
+            # 设置评分次数阈值
+            # 利用join方法在corr_movie中加入ratings的number of ratings列
+            corr_movie = corr_movie.join(ratings['number_of_ratings'])
+            # print("corr_movie: \n", corr_movie.head())
+            # print()
+            corr_movie_after_treated = corr_movie[corr_movie['number_of_ratings'] > setting_number].sort_values(by='Correlation', ascending=False)        
+            # 去除第一行（即该电影本身）
+            corr_movie_after_treated.drop(index=[movie], inplace=True)
+            print("corr_movie after treated: \n", corr_movie_after_treated.head())
+            print()
+
+            # 是否保存
+            save = input("Do you want to save the " + "recommended movies based on " + movie + " as .csv? Y/N ")
+            if save == 'Y':
+                similar_movie.to_csv(data_path + 'Recommendation based on ' + movie + '.csv')
         
     clear_screen = input("Clean the screen? Y/N ")
     if clear_screen == "Y":

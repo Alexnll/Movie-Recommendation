@@ -1,12 +1,13 @@
 # 推荐系统主程序
 import Movie_Correlation
+import search_movie
 
 import os
 import time
       
 back_or_exit = "Press any buttom to go back to the selection or q to exit.\n"
 
-# 推出文本
+# 退出文本
 def print_exit():
     print()
     print("Thank you.")
@@ -46,14 +47,14 @@ if __name__ == "__main__":
             print("|                                                                |\n")
             print("|      1. See some high-rating movies on MovieLens randomly;     |\n")
             print("|                                                                |\n")
-            print("|      2. Input some movies you likes for the Recommendation；   |\n")
+            print("|      2. Input some movies you like for the Recommendation；    |\n")
             print("|                                                                |\n")
-            print("|      3.                                                        |\n")
+            print("|      3. Input some tags or generes you like;                   |\n")
             print("|                                                                |\n")
-            print("|      4.                                                        |\n")
+            print("|      4. Login in to see your personal recommendation list,     |\n")
+            print("|         or rate some movies;                                   |\n")
             print("|                                                                |\n")
             print("|      Press the number to select or q to exit.                  |\n")
-            print("|                                                                |\n")
             print("|________________________________________________________________|\n")
         
             menu_select = input()
@@ -67,7 +68,6 @@ if __name__ == "__main__":
                 # 主体
 
                 # 结束
-
                 system_open = input(back_or_exit)
                 if system_open == 'q':
                     print_exit()
@@ -80,10 +80,11 @@ if __name__ == "__main__":
 
                 # 主体
                 print()
-                print("Try input some movie you like:")
-                input_list = []   # 读取list, 未完成
-                search(input_list) # 未完成
-                Movie_Correlation.MC_main(input_list)
+                treated_list = search_movie.search_main() # 在数据集中匹配读取道德电影列表，未完成
+                if len(treated_list) == 0:
+                    print("Nothing match.")
+                else:
+                    Movie_Correlation.MC_main(treated_list)
 
                 # 结束
                 system_open = input(back_or_exit)
@@ -95,6 +96,7 @@ if __name__ == "__main__":
                     
             elif menu_select == '3':
                 os.system("cls")
+
                 # 主体
 
 
@@ -108,6 +110,7 @@ if __name__ == "__main__":
 
             elif menu_select == '4':
                 os.system("cls")
+
                 # 主体
 
 
