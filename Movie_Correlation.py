@@ -96,7 +96,8 @@ def construct_RS(df_merged, ratings, user_list, setting_number=100):
             corr_movie_after_treated = corr_movie[corr_movie['number_of_ratings'] > setting_number].sort_values(by='Correlation', ascending=False)        
             # 去除第一行（即该电影本身）
             corr_movie_after_treated.drop(index=[movie], inplace=True)
-            print("corr_movie after treated: \n", corr_movie_after_treated.head())
+            # print("corr_movie after treated: \n", corr_movie_after_treated.head())
+            print("Recommended list: \n", corr_movie_after_treated.head())
             print()
 
             # 是否保存

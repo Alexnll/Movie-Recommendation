@@ -1,6 +1,7 @@
 # 推荐系统主程序
 import Movie_Correlation
 import search_movie
+import Random_Recommendation
 
 import os
 import time
@@ -58,14 +59,25 @@ if __name__ == "__main__":
             print("|________________________________________________________________|\n")
         
             menu_select = input()
+            # 在选择界面退出
             if menu_select == 'q':
                 print_exit()
                 break
-
+            # 选择1 (已完成)
             elif menu_select == '1':
                 os.system("cls")
 
                 # 主体
+                print()
+                print('We will randomly recommend some movie for you now.')
+                time.sleep(1)
+                while True:
+                    print()
+                    Random_Recommendation.rand_main(n=4)  # 随机生成函数
+                    print()
+                    OK_or_not = input('Do these movies OK for you? Y/N ')
+                    if OK_or_not == 'Y':
+                        break
 
                 # 结束
                 system_open = input(back_or_exit)
@@ -74,13 +86,13 @@ if __name__ == "__main__":
                     break
                 else:
                     continue
-
+            # 选择2 （已完成）
             elif menu_select == '2':
                 os.system("cls")
 
                 # 主体
                 print()
-                treated_list = search_movie.search_main() # 在数据集中匹配读取道德电影列表，未完成
+                treated_list = search_movie.search_main() # 使用户输入电影列表，并在数据集中进行匹配，名称补完
                 if len(treated_list) == 0:
                     print("Nothing match.")
                 else:
@@ -93,7 +105,7 @@ if __name__ == "__main__":
                     break
                 else:
                     continue
-                    
+            # 选择3     
             elif menu_select == '3':
                 os.system("cls")
 
