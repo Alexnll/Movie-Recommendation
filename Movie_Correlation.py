@@ -9,7 +9,6 @@ import os
 
 import warnings
 
-
 # 数据集储存的位置
 data_path = '.\dataset\\'
 path_20m = '.\dataset\\ml-20m\\'
