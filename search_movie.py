@@ -22,7 +22,7 @@ def fill(movie_name_after_treated, data=path_small):
         name = getattr(movie_name, 'title')
         user_choose = input("Do you mean %s ? Y/N " % name)
         if user_choose == 'Y':
-            os.system('cls')
+            # os.system('cls')
             return name
             break
         else:
@@ -53,7 +53,8 @@ def search_main(limit=4):
             x -= 1
             l -= 1
         x += 1
-
+        
+    os.system('cls')
     return user_input
 
 if __name__ == "__main__":
