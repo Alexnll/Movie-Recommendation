@@ -28,7 +28,7 @@
 - user_information.py
 编写储存用户信息的class，将所有用户的账户id与密码储存在info.csv中，同时将所有用户的评分情况储存在以用户id命名的csv文件中。
 
-##### 6. 构建基于用户的   推荐系统
+##### 6. 构建基于用户的协同过滤推荐系统
 - User_information.py
 实现想法：
 1. 找到和目标用户信息相似的用户集合
@@ -39,7 +39,6 @@
 ##### 7. 搜索与匹配
 - search_movie.py
 对用户不完整的输入进行补全补全，实其成为完整的电影名
-
 
 ##### 8. 主界面
 - main.py
@@ -58,6 +57,8 @@ ml-latest-small: .\dataset\ml-latest-small\
 ml-20m: .\dataset\\ml-20m\
 ### 用户信息储存
 .\new_user
+### 文件夹结构
+
 
 ### 数据集下载
 > https://grouplens.org/datasets/movielens/

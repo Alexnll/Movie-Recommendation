@@ -25,13 +25,13 @@ class user:
     __star_list = None # star列表
 
     # 初始化用户的账户iD，密码，以及一个空的字典列表
-    def __init__(self, login_or_sign):
+    def __init__(self, Sign_in_or_up):
         # 注册账户
-        if login_or_sign == 'login': 
+        if Sign_in_or_up == 'up': 
             self.__account_generated()
 
         # 登录账户
-        elif login_or_sign == 'sign':
+        elif Sign_in_or_up == 'in':
             read_Id = input('Please print your user Id: ')
             self.__sign_in(read_Id)
 

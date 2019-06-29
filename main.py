@@ -7,7 +7,7 @@ import Gene_Recommendation
 import os
 import time
       
-back_or_exit = "Press any buttom to go back to the selection or q to exit.\n"
+back_or_exit = "\nPress any buttom to go back to the selection or q to exit.\n"
 
 # 退出文本
 def print_exit():
@@ -53,7 +53,7 @@ if __name__ == "__main__":
             print("|                                                                |\n")
             print("|      3. Input some tags or generes you like;                   |\n")
             print("|                                                                |\n")
-            print("|      4. Login in to see your personal recommendation list,     |\n")
+            print("|      4. Sign in/up to see your personal recommendation list,   |\n")
             print("|         or rate some movies;                                   |\n")
             print("|                                                                |\n")
             print("|      Press the number to select or q to exit.                  |\n")
@@ -122,11 +122,34 @@ if __name__ == "__main__":
                     continue
             # 选择4
             elif menu_select == '4':
-                os.system("cls")
-
+                # os.system("cls")
                 # 主体
+                # 登录or注册
+                while True:
+                    os.system("cls")
+                    print()
+                    user_chose = input("Want to sign in or sign up? in/up ")
+                    # 登录
+                    if user_chose == 'in':
+                        os.system("cls")
+                    
 
+                    # 注册
+                    elif user_chose == 'up':
+                        os.system("cls")
+                    
+                    # 直接退出
+                    elif user_chose == 'q':
+                        break
 
+                    # 错误输入
+                    else:
+                        print()
+                        print("Wrong input. Please try again. Or you can print q to exit.")
+                        time.sleep(2)
+                        continue
+                    break
+                
                 # 结束
                 system_open = input(back_or_exit)
                 if system_open == 'q':
