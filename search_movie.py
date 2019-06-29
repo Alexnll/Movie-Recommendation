@@ -1,6 +1,7 @@
 # 在数据集中搜索用户输入的电影以匹配
 # 当用户输入电影名不完全时，进行补完
 import pandas as pd
+import os
 
 # 电影名文件集
 path_20m = '.\dataset\\ml-20m\\movies.csv'
@@ -21,6 +22,7 @@ def fill(movie_name_after_treated, data=path_small):
         name = getattr(movie_name, 'title')
         user_choose = input("Do you mean %s ? Y/N " % name)
         if user_choose == 'Y':
+            os.system('cls')
             return name
             break
         else:

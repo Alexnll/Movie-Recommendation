@@ -100,9 +100,9 @@ def construct_RS(df_merged, ratings, user_list, setting_number=100):
             print()
 
             # 是否保存
-            save = input("Do you want to save the " + "recommended movies based on " + movie + " as .csv? Y/N ")
-            if save == 'Y':
-                similar_movie.to_csv(data_path + 'Recommendation based on ' + movie + '.csv')
+            #save = input("Do you want to save the " + "recommended movies based on " + movie + " as .csv? Y/N ")
+            #if save == 'Y':
+            #    similar_movie.to_csv(data_path + 'Recommendation based on ' + movie + '.csv')
         
     clear_screen = input("Clean the screen? Y/N ")
     if clear_screen == "Y":
