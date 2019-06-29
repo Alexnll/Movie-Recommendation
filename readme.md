@@ -7,8 +7,11 @@
 5. 列表搜索
 6. 用户信息记录
 ### 2. 已完成内容
-##### 1. 数据集
-采用MOovieLes的ml-latest-small进行推荐系统的构建，并在ml-20m的大数据集上进行测试
+##### 1. 前置工作
+采用MOovieLes的ml-latest-small进行推荐系统的构建，并在ml-20m的大数据集上进行测试。
+- 安装python
+- 安装numpy库
+- 安装pandas库
 
 ##### 2. 基于一定随机性推荐出高评分的电影
 - Random_Recommendation.py
