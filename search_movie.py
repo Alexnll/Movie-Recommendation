@@ -14,7 +14,7 @@ def treat_input():
     
 # 在电影目录中找到补完后的结果，若无匹配对象，则返回None
 def fill(movie_name_after_treated, data=path_small):
-    df_movies = pd.read_csv(path_small, usecols=['title'])
+    df_movies = pd.read_csv(data, usecols=['title'])
     # series对象才有str方法，dataframe并无
     filter_data = df_movies[df_movies['title'].str.contains(movie_name_after_treated)]
     for movie_name in filter_data.itertuples():
@@ -27,7 +27,6 @@ def fill(movie_name_after_treated, data=path_small):
             print()
 
     return ""  
-    
 
 def search_main(limit=4):
     user_input = treat_input()

@@ -2,6 +2,7 @@
 import Movie_Correlation
 import search_movie
 import Random_Recommendation
+import Gene_Recommendation
 
 import os
 import time
@@ -63,7 +64,7 @@ if __name__ == "__main__":
             if menu_select == 'q':
                 print_exit()
                 break
-            # 选择1 (已完成)
+            # 选择1(已完成)
             elif menu_select == '1':
                 os.system("cls")
 
@@ -86,7 +87,7 @@ if __name__ == "__main__":
                     break
                 else:
                     continue
-            # 选择2 （已完成）
+            # 选择2(已完成)
             elif menu_select == '2':
                 os.system("cls")
 
@@ -105,12 +106,12 @@ if __name__ == "__main__":
                     break
                 else:
                     continue
-            # 选择3     
+            # 选择3(已完成)    
             elif menu_select == '3':
                 os.system("cls")
 
                 # 主体
-
+                Gene_Recommendation.Gene_main()
 
                 # 结束
                 system_open = input(back_or_exit)
