@@ -3,8 +3,8 @@
 # 采用皮尔逊积相关系数表征电影之间的相关性
 import  pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn  as sns
+# import matplotlib.pyplot as plt
+# import seaborn  as sns
 import os
 
 import warnings

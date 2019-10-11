@@ -3,6 +3,7 @@ import Movie_Correlation
 import search_movie
 import Random_Recommendation
 import Gene_Recommendation
+import User_Information
 
 import os
 import time
@@ -129,15 +130,17 @@ if __name__ == "__main__":
                     os.system("cls")
                     print()
                     user_chose = input("Want to sign in or sign up? in/up ")
-                    # 登录
-                    if user_chose == 'in':
+                    # 登录或注册
+                    if user_chose == 'in' or user_chose == 'up':
                         os.system("cls")
+                        USER = User_Information.user(user_chose)
+                        while True:
+                            os.system("cls")
+                            select_again = input('What do you want to do? Please select a number.')
                     
-
-                    # 注册
-                    elif user_chose == 'up':
-                        os.system("cls")
                     
+                    
+                    未完成
                     # 直接退出
                     elif user_chose == 'q':
                         break
